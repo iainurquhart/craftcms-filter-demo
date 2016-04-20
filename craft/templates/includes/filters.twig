@@ -44,6 +44,40 @@
 
 	</ul>
 
+	{# Transmission: Enumeration #}
+
+	<h3>Transmission</h3>
+
+	<ul class="nav">
+		
+		{% set transmission = craft.request.getParam('transmission') %}
+
+		{% set isAny = transmission is empty %}
+		<li {{ isAny ? 'class="active"' : '' }}>
+			<label>
+				<input type="radio" name="transmission" value="" {{ isAny ? 'checked' : ''}}>
+				Any
+			</label>
+		</li>
+
+		{% set isAutomatic = transmission == 'Automatic' %}
+		<li {{ isAutomatic ? 'class="active"' : '' }}>
+			<label>
+				<input type="radio" name="transmission" value="Automatic" {{ isAutomatic ? 'checked' : ''}}>
+				Automatic
+			</label>
+		</li>
+
+		{% set isManual = transmission == 'Manual' %}
+		<li {{ isManual ? 'class="active"' : '' }}>
+			<label>
+				<input type="radio" name="transmission" value="Manual" {{ isManual ? 'checked' : ''}}>
+				Manual
+			</label>
+		</li>
+
+	</ul>
+
 	<input type="submit" value="Refresh" class="btn btn-primary sr-only">
 
 </form>

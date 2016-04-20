@@ -62,6 +62,15 @@
 	{% set params = params | merge({relatedTo: relations}) %}
 {% endif %}
 
+{#
+	Transmission (enumeration field)
+	Notice that we set the field name as the param property.
+#}
+{% set transmission = craft.request.getParam('transmission') %}
+{% if transmission %}
+	{% set params = params | merge({transmission: transmission}) %}
+{% endif %}
+
 
 {% for entry in craft.entries(params) %}
 
