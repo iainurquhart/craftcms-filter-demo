@@ -23,6 +23,27 @@
 
 	</ul>
 
+	{# Options: Mutually inclusive #}
+
+	<h3>Options</h3>
+
+	<ul class="nav">
+
+		{% for item in craft.categories.group('options') %}
+
+			{% set isActive = item.id in craft.request.getParam('options') %}
+
+			<li {{ isActive ? 'class="active"' : '' }}>
+				<label>
+					<input type="checkbox" name="options[]" value="{{ item.id }}" {{ isActive ? 'checked' : '' }}>
+					{{ item.title }}
+				</label>
+			</li>
+
+		{% endfor %}
+
+	</ul>
+
 	<input type="submit" value="Refresh" class="btn btn-primary sr-only">
 
 </form>

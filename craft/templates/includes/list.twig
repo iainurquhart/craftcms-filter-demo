@@ -28,6 +28,25 @@
 {% endif %}
 
 {#
+	Options category
+	Since all options must be present on an entry we need to add
+	'and' to the front of the options id array so it looks something
+	like this:
+	```
+		['and', 1, 2]
+	```
+	The 'and' specifies that option id 1 and option id 2 must
+	both be applied to an entry. It could be 'or', but its absence
+	implies 'or'.
+#}
+{% set options = craft.request.getParam('options') %}
+{% if options %}
+	{% set options = ['and'] | merge(options) %}
+	{% set relation = {field: 'options', targetElement: options} %}
+	{% set relatedTo = relatedTo | merge([relation]) %}
+{% endif %}
+
+{#
 	Create the `relatedTo` property on `params` if needed.
 	It could look something like this: (Notice the 'and'.)
 	```
