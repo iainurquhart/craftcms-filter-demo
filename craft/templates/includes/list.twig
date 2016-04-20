@@ -1,0 +1,33 @@
+<h2>List</h2>
+
+{% for entry in craft.entries.section('jeeps').limit(10) %}
+
+	<div class="panel panel-default">
+
+		<div class="panel-heading">
+			<h3 class="panel-title">{{ entry.title }}</h3>
+		</div>
+
+		<div class="panel-body">
+
+			<img src="{{ entry.image.first.url }}">
+
+			<p>
+				<label>Mileage:</label> {{ entry.mileage }}
+
+				<br><label>Transmission:</label> {{ entry.transmission }}
+
+				<br><label>Color:</label> {{ entry.color.first }}
+
+				{% set options = [] %}
+				{% for option in entry.options %}
+					{% set options = options | merge([option.title]) %}
+				{% endfor %}
+
+				<br><label>Options:</label> {{ options | join(', ') }}
+			</p>
+
+		</div>
+	</div>
+
+{% endfor %}

@@ -1,0 +1,22 @@
+# Craft Storage (cache) [http://buildwithcraft.com/help/craft-storage-gitignore]
+/craft/storage/*
+!/craft/storage/.gitkeep
+!/craft/storage/logo/*
+
+.DS_Store
+.idea*
+.tools
+*.todo
+
+public/.htaccess
+public/*.log
+public/error_log
+public/*/.htaccess
+public/imagecache/
+.env
+
+node_modules
+npm-debug.log
+*.sublime-*
+vendor/
+!craft/app/vendor/
