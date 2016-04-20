@@ -1,6 +1,10 @@
 <h2>List</h2>
 
-{% for entry in craft.entries.section('jeeps').limit(10) %}
+{% set params = {
+	section: 'jeeps',
+} %}
+
+{% for entry in craft.entries(params) %}
 
 	<div class="panel panel-default">
 
