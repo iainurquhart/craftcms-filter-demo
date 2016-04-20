@@ -10,9 +10,11 @@
 
 		{% for item in craft.categories.group('color') %}
 
-			<li>
+			{% set isActive = item.id in craft.request.getParam('color') %}
+
+			<li {{ isActive ? 'class="active"' : '' }}>
 				<label>
-					<input type="checkbox" name="color[]" value="{{ item.id }}">
+					<input type="checkbox" name="color[]" value="{{ item.id }}" {{ isActive ? 'checked' : '' }}>
 					{{ item.title }}
 				</label>
 			</li>

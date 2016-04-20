@@ -13,3 +13,10 @@ img {
 .filter-submit {
 	margin-top: 20px;
 }
+
+.active label {
+	display: block;
+	color: white;
+	font-weight: normal;
+	background-color: #2F79B9;
+}
