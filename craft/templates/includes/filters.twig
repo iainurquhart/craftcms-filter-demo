@@ -14,7 +14,7 @@
 
 			<li {{ isActive ? 'class="active"' : '' }}>
 				<label>
-					<input type="checkbox" name="color[]" value="{{ item.id }}" {{ isActive ? 'checked' : '' }}>
+					<input type="checkbox" name="color[]" value="{{ item.id }}" {{ isActive ? 'checked' : '' }} class="sr-only">
 					{{ item.title }}
 				</label>
 			</li>
@@ -35,7 +35,7 @@
 
 			<li {{ isActive ? 'class="active"' : '' }}>
 				<label>
-					<input type="checkbox" name="options[]" value="{{ item.id }}" {{ isActive ? 'checked' : '' }}>
+					<input type="checkbox" name="options[]" value="{{ item.id }}" {{ isActive ? 'checked' : '' }} class="sr-only">
 					{{ item.title }}
 				</label>
 			</li>
@@ -55,7 +55,7 @@
 		{% set isAny = transmission is empty %}
 		<li {{ isAny ? 'class="active"' : '' }}>
 			<label>
-				<input type="radio" name="transmission" value="" {{ isAny ? 'checked' : ''}}>
+				<input type="radio" name="transmission" value="" {{ isAny ? 'checked' : ''}} class="sr-only">
 				Any
 			</label>
 		</li>
@@ -63,7 +63,7 @@
 		{% set isAutomatic = transmission == 'Automatic' %}
 		<li {{ isAutomatic ? 'class="active"' : '' }}>
 			<label>
-				<input type="radio" name="transmission" value="Automatic" {{ isAutomatic ? 'checked' : ''}}>
+				<input type="radio" name="transmission" value="Automatic" {{ isAutomatic ? 'checked' : ''}} class="sr-only">
 				Automatic
 			</label>
 		</li>
@@ -71,7 +71,7 @@
 		{% set isManual = transmission == 'Manual' %}
 		<li {{ isManual ? 'class="active"' : '' }}>
 			<label>
-				<input type="radio" name="transmission" value="Manual" {{ isManual ? 'checked' : ''}}>
+				<input type="radio" name="transmission" value="Manual" {{ isManual ? 'checked' : ''}} class="sr-only">
 				Manual
 			</label>
 		</li>
