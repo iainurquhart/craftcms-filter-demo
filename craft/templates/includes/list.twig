@@ -4,6 +4,46 @@
 	section: 'jeeps',
 } %}
 
+{#
+	Category relationships will all be stored in this
+	`relatedTo` array. It will eventually look like:
+	```
+		[
+			{field: 'color', targetElement: color},
+			{field: 'options', targetElement: options}
+		]
+	```
+#}
+{% set relatedTo = [] %}
+
+{#
+	Color category
+	`targetElement` can accept a comma-separated string or an array of ids.
+	In this case, it's getting an array from `craft.request.param`.
+#}
+{% set color = craft.request.getParam('color') %}
+{% if color %}
+	{% set relation = {field: 'color', targetElement: color} %}
+	{% set relatedTo = relatedTo | merge([relation]) %}
+{% endif %}
+
+{#
+	Create the `relatedTo` property on `params` if needed.
+	It could look something like this: (Notice the 'and'.)
+	```
+		relatedTo: [
+			'and',
+			{field: 'color', targetElement: color},
+			{field: 'options', targetElement: options}
+		]
+	```
+#}
+{% if relatedTo | length %}
+	{% set relations = ['and'] | merge(relatedTo) %}
+	{% set params = params | merge({relatedTo: relations}) %}
+{% endif %}
+
+
 {% for entry in craft.entries(params) %}
 
 	<div class="panel panel-default">
