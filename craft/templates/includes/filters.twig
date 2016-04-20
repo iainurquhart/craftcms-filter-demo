@@ -1,1 +1,26 @@
 <h2>Filters</h2>
+
+<form action="/" method="GET">
+
+	{# Color: Mutually exclusive #}
+
+	<h3>Color</h3>
+
+	<ul class="nav">
+
+		{% for item in craft.categories.group('color') %}
+
+			<li>
+				<label>
+					<input type="checkbox" name="color[]" value="{{ item.id }}">
+					{{ item.title }}
+				</label>
+			</li>
+
+		{% endfor %}
+
+	</ul>
+
+	<input type="submit" value="Refresh" class="btn btn-primary filter-submit">
+
+</form>
