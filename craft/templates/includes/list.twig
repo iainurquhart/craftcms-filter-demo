@@ -71,7 +71,26 @@
 	{% set params = params | merge({transmission: transmission}) %}
 {% endif %}
 
+{#
+	Mileage (range)
+#}
+{% set range = ['and'] %}
 
+{% set mileageMin = craft.request.getParam('mileageMin') %}
+{% if mileageMin %}
+	{% set range = range | merge(['>= ' ~ mileageMin]) %}
+{% endif %}
+
+{% set mileageMax = craft.request.getParam('mileageMax') %}
+{% if mileageMax %}
+	{% set range = range | merge(['<= ' ~ mileageMax]) %}
+{% endif %}
+
+{% set params = params | merge({mileage: range}) %}
+
+{#
+	Render the list
+#}
 {% for entry in craft.entries(params) %}
 
 	<div class="panel panel-default">

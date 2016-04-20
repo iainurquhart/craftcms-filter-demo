@@ -78,6 +78,16 @@
 
 	</ul>
 
+	{# Mileage: Range #}
+
+	<h3>Mileage</h3>
+
+	<label>Min</label>
+	<br><input name="mileageMin" value="{{ craft.request.getParam('mileageMin') }}">
+
+	<br><br><label>Max</label>
+	<br><input name="mileageMax" value="{{ craft.request.getParam('mileageMax') }}">
+
 	<input type="submit" value="Refresh" class="btn btn-primary sr-only">
 
 </form>
