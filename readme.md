@@ -2,10 +2,10 @@
 
 This is something I put together for the NYC Craft CMS meetup 4/2015. It demonstrates how to implement content listing filters (facet filtering) in Twig templates. These include:
 
-Mutually exclusive category: Color
-Inclusive category: Options
-Range: Mileage
-Enumeration (basic field value): Transmission
+* Mutually exclusive category: Color
+* Inclusive category: Options
+* Range: Mileage
+* Enumeration (basic field value): Transmission
 
 The product list is a bunch of Jeep Wranglers.
 
